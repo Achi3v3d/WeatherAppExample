@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.inaki.weatherappexample.R
@@ -98,6 +99,15 @@ class CityForecastFragment : Fragment(), ForecastDetailsClick {
     }
 
     override fun moveToForecastDetails(cityName: String, forecast: Forecast) {
-        findNavController().navigate(R.id.ForecastDetailsFragment)
+        findNavController().navigate(R.id.ForecastDetailsFragment, bundleOf(
+            Pair("param1", forecast.main.feelsLike),
+            Pair("param2", forecast.weather[0].main),
+            Pair("param1", forecast.weather[0].description),
+            Pair("param1", forecast.main.temp),
+            Pair("param5", forecast.main.temp),
+            Pair("param1", forecast.main.tempMax),
+            Pair("param1", forecast.main.tempMin),
+            Pair("param1", forecast.main.humidity),
+        ))
     }
 }
