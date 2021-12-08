@@ -103,12 +103,12 @@ class CityForecastFragment : Fragment(), ForecastDetailsClick {
         findNavController().navigate(R.id.ForecastDetailsFragment, bundleOf(
             Pair("param1", forecast.weather[0].description),
             Pair("param2", forecast.weather[0].main),
-            Pair("param3", forecast.main.pressure),
-            Pair("param4", forecast.main.feelsLike),
-            Pair("param5", forecast.main.temp),
-            Pair("param6", forecast.main.tempMax),
-            Pair("param7", forecast.main.tempMin),
-            Pair("param8", forecast.main.humidity),
+            Pair("param3", forecast.main.pressure.toString()),
+            Pair("param4", forecast.main.feelsLike.toString()),
+            Pair("param5", forecast.main.temp.toString()),
+            Pair("param6", forecast.main.tempMax.toString()),
+            Pair("param7", forecast.main.tempMin.toString()),
+            Pair("param8", forecast.main.humidity.toString()),
         ))
     }
 }

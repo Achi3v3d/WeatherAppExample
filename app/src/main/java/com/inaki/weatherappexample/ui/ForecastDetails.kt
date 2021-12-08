@@ -30,12 +30,12 @@ class ForecastDetails : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var param3: Float? = null
-    private var param4: Float? = null
-    private var param5: Float? = null
-    private var param6: Float? = null
-    private var param7: Float? = null
-    private var param8: Float? = null
+    private var param3: String? = null
+    private var param4: String? = null
+    private var param5: String? = null
+    private var param6: String? = null
+    private var param7: String? = null
+    private var param8: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,12 +43,12 @@ class ForecastDetails : Fragment() {
 
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
-            param3 = it.getFloat(ARG_PARAM3)
-            param4 = it.getFloat(ARG_PARAM4)
-            param5 = it.getFloat(ARG_PARAM5)
-            param6 = it.getFloat(ARG_PARAM6)
-            param7 = it.getFloat(ARG_PARAM7)
-            param8 = it.getFloat(ARG_PARAM8)
+            param3 = it.getString(ARG_PARAM3)
+            param4 = it.getString(ARG_PARAM4)
+            param5 = it.getString(ARG_PARAM5)
+            param6 = it.getString(ARG_PARAM6)
+            param7 = it.getString(ARG_PARAM7)
+            param8 = it.getString(ARG_PARAM8)
 
         }
         Log.d("check","testing --- $param6 ")
@@ -89,17 +89,17 @@ class ForecastDetails : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param1: String, param2: String, param3: String, param4: String, param5: String, param6: String, param7: String, param8: String) =
             ForecastDetails().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
-                    param3?.let { putFloat(ARG_PARAM3, it) }
-                    param4?.let { putFloat(ARG_PARAM4, it) }
-                    param5?.let { putFloat(ARG_PARAM5, it) }
-                    param6?.let { putFloat(ARG_PARAM6, it) }
-                    param7?.let { putFloat(ARG_PARAM7, it) }
-                    param8?.let { putFloat(ARG_PARAM8, it) }
+                    putString(ARG_PARAM3, param3)
+                    putString(ARG_PARAM4, param4)
+                    putString(ARG_PARAM5, param5)
+                    putString(ARG_PARAM6, param6)
+                    putString(ARG_PARAM7, param7)
+                    putString(ARG_PARAM8, param8)
                 }
             }
     }
