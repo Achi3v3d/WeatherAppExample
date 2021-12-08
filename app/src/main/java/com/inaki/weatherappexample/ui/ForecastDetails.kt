@@ -1,6 +1,7 @@
 package com.inaki.weatherappexample.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,8 +28,8 @@ class ForecastDetails : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var param3: String? = null
-    private var param4: String? = null
+    private var param3: Float? = null
+    private var param4: Float? = null
     private var param5: Float? = null
     private var param6: Float? = null
     private var param7: Float? = null
@@ -37,16 +38,20 @@ class ForecastDetails : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
-            param3 = it.getString(ARG_PARAM3)
-            param4 = it.getString(ARG_PARAM4)
+            param3 = it.getFloat(ARG_PARAM3)
+            param4 = it.getFloat(ARG_PARAM4)
             param5 = it.getFloat(ARG_PARAM5)
             param6 = it.getFloat(ARG_PARAM6)
             param7 = it.getFloat(ARG_PARAM7)
             param8 = it.getFloat(ARG_PARAM8)
+
         }
+        Log.d("check","testing --- $param1 ")
     }
+//
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,8 +77,8 @@ class ForecastDetails : Fragment() {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
-                    putString(ARG_PARAM3, param3)
-                    putString(ARG_PARAM4, param4)
+                    param3?.let { putFloat(ARG_PARAM3, it) }
+                    param4?.let { putFloat(ARG_PARAM4, it) }
                     param5?.let { putFloat(ARG_PARAM5, it) }
                     param6?.let { putFloat(ARG_PARAM6, it) }
                     param7?.let { putFloat(ARG_PARAM7, it) }

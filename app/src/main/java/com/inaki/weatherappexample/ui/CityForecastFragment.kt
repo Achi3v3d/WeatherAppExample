@@ -81,6 +81,7 @@ class CityForecastFragment : Fragment(), ForecastDetailsClick {
 
     private fun handleError(throwable: Throwable) {
         Toast.makeText(requireContext(), throwable.localizedMessage, Toast.LENGTH_LONG).show()
+
     }
 
     private fun handleSuccess(forecast: CityForecast) {
@@ -100,14 +101,14 @@ class CityForecastFragment : Fragment(), ForecastDetailsClick {
 
     override fun moveToForecastDetails(cityName: String, forecast: Forecast) {
         findNavController().navigate(R.id.ForecastDetailsFragment, bundleOf(
-            Pair("param1", forecast.main.feelsLike),
-            Pair("param2", forecast.weather[0].main),
             Pair("param1", forecast.weather[0].description),
-            Pair("param1", forecast.main.temp),
+            Pair("param2", forecast.weather[0].main),
+            Pair("param3", forecast.main.pressure),
+            Pair("param4", forecast.main.feelsLike),
             Pair("param5", forecast.main.temp),
-            Pair("param1", forecast.main.tempMax),
-            Pair("param1", forecast.main.tempMin),
-            Pair("param1", forecast.main.humidity),
+            Pair("param6", forecast.main.tempMax),
+            Pair("param7", forecast.main.tempMin),
+            Pair("param8", forecast.main.humidity),
         ))
     }
 }
