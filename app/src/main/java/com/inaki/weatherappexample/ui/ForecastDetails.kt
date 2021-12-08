@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.inaki.weatherappexample.R
+import com.inaki.weatherappexample.databinding.FragmentForecastDetailsBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +26,7 @@ private const val ARG_PARAM8 = "param8"
  * create an instance of this fragment.
  */
 class ForecastDetails : Fragment() {
+    private lateinit var binding: FragmentForecastDetailsBinding
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -49,7 +51,7 @@ class ForecastDetails : Fragment() {
             param8 = it.getFloat(ARG_PARAM8)
 
         }
-        Log.d("check","testing --- $param1 ")
+        Log.d("check","testing --- $param6 ")
     }
 //
 
@@ -57,8 +59,23 @@ class ForecastDetails : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentForecastDetailsBinding.inflate(layoutInflater)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_forecast_details, container, false)
+        return binding.root
+        //return inflater.inflate(R.layout.fragment_forecast_details, container, false)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.desDescription.text = param1
+        binding.desWeather.text = param2
+        binding.desFeel.text = param4.toString()
+        binding.desHum.text = param8.toString()
+        binding.desMax.text = param6.toString()
+        binding.desMin.text = param7.toString()
+        binding.desPressure.text = param3.toString()
+        binding.desTemp.text = param5.toString()
+
     }
 
     companion object {
